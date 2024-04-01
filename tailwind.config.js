@@ -9,6 +9,9 @@ export default {
         extend: {
             fontFamily: {
                 sans: 'Figtree'
+            },
+            fontSize: {
+                'sb': '0.938rem'
             }
         },
     },

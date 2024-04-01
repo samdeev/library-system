@@ -52,8 +52,8 @@
             </div>
 
             <div class="flex justify-end items-center">
-                <x-forms.primary-button>
-                    Login
+                <x-forms.primary-button class="uppercase">
+                    {{ __('Login') }}
                 </x-forms.primary-button>
             </div>
 

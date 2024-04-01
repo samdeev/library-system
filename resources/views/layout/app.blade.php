@@ -13,11 +13,12 @@
 </head>
 <body class="antialiased font-sans bg-gray-100">
 <div>
-    <x-header />
-
-    <main class="py-12">
-        {{ $slot }}
-    </main>
+    <div class="flex">
+        <x-sidebar />
+        <main class="py-16 px-8 w-full">
+            {{ $slot }}
+        </main>
+    </div>
 </div>
 </body>
 </html>

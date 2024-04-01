@@ -7,22 +7,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('login');
 
-Route::middleware('guest')->prefix('login')->group(function () {
-   Route::get('/', [AdminLoginController::class, 'create'])->name('admin.create');
-   Route::post('/', [AdminLoginController::class, 'login'])->name('admin.login');
+Route::get('dashboard', function () {
+    return view('dashboard');
+})->middleware('auth')->name('dashboard');
 
-   Route::get('teacher', [AdminLoginController::class, 'create'])->name('teacher.create');
-
-   Route::get('student', [StudentLoginController::class, 'create'])->name('student.create');
-});
+require __DIR__ . '/auth.php';
+require __DIR__ . '/student.php';
 
 Route::get('logout', AuthenticatedSessionController::class);
 
-Route::get('dashboard', function () {
-    return 'Dashboard';
-})->name('dashboard');
+Route::fallback(function () {
+   return view('not-found');
+});
 
 //basis
 //https://www.kashipara.com/project/laravel-php/8085/laravel-document-library-system
